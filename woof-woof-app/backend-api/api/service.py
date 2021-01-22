@@ -9,6 +9,14 @@ import api.utils as api_utils
 
 prefix = "/v1"
 
+# api boiler plate code
+"""
+boiler plate url code
+
+An API (Application Programming Interface) is a set of functions that allows applications to access data
+and interact with external software components, operating systems, or microservices.
+ To simplify, an API delivers a user response to a system and sends the system's response back to a user.
+"""
 # Setup FastAPI app
 app = FastAPI(
     title="API Service",
@@ -40,7 +48,7 @@ async def generic_exception_handler(request: Request, exc: Exception):
 
 @app.on_event("startup")
 async def startup():
-    #api_utils.ensure_data_loaded()
+    api_utils.ensure_data_loaded()
     pass
 
 @app.on_event("shutdown")
@@ -59,4 +67,4 @@ async def get_index():
     }
 
 # Additional routers here
-#app.include_router(data.router, prefix=prefix)
+app.include_router(data.router, prefix=prefix)

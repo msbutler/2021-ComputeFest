@@ -2,6 +2,7 @@
 
 echo "Container is running!!!"
 
+# defines a commmand we can use in the shell
 apiserver() {
     uvicorn api.service:app --reload --host 0.0.0.0 --port 9000 --lifespan on --log-level debug --reload-dir app "$@"
 }

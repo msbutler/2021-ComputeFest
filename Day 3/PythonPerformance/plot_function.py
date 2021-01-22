@@ -14,7 +14,7 @@ warnings.simplefilter('error') # Convert runtime warnings into errors
 
 # Step 2: Define domain x
 # TODO: complete the declaration of x
-x = np.zeros(51)
+x = [x for x in range(50)]
 
 # Step 3: Denote y as a function of x
 # TODO: complete the declaration of y

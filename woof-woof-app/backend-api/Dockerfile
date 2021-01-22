@@ -31,9 +31,11 @@ RUN set -ex; \
     mkdir -p /app && \
     chown app:app /app
 
+
 EXPOSE 9000
 
 # Switch to the new user
+# creating a new user prevents someone from breaking anything outside the container, i think
 USER app
 WORKDIR /app
 
@@ -47,4 +49,6 @@ RUN pipenv sync
 ADD --chown=app:app . /app
 
 # Entry point
+# good not to run in the docker image file itself, rather set two processes to be run
+# specifically, this uses bash to run docker-entrypoint.sh
 ENTRYPOINT ["/bin/bash","./docker-entrypoint.sh"]
